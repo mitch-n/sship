@@ -9,6 +9,9 @@ RUN useradd -m -p $(perl -e 'print crypt("password", "salt")') 'Weapons'
 WORKDIR /home/Ship
 RUN touch resolv
 COPY . .
+RUN cp ./.profile /home/Captain/.profile
+RUN cp ./.profile /home/Engineer/.profile
+RUN cp ./.profile /home/Weapons/.profile
 RUN chmod +x ./entrypoint.sh
 EXPOSE 22
 ENV TERM=xterm
